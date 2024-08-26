@@ -33,45 +33,48 @@ var questionAnswerArrayOfObj = [
 
 function loadQuestionAndAnswers() {
   for (let i = 0; i < questionAnswerArrayOfObj.length; i++) {
-    var faqBody = `
-      <section class="faq">
-        <div class="questions-box" onclick="visibleAnswer(${i}) ">
-          <h2 id="question-${i + 1}">${
-      questionAnswerArrayOfObj[i].question
-    }</h2>
-      <span
-            onclick="visibleAnswer(${i})"
-            id="mybutton-${i + 1}"
-            class="material-symbols-outlined"
-          >
-            <i class="fa-solid fa-plus fa-lg"></i>
-          </span>
-        </div>
-        <div class="answer-box">
-          <div class="faq-answer" id="answer-${i + 1}">
-          <p>${questionAnswerArrayOfObj[i].answer}</p></div>
-        </div>
-      </section>`;
-    console.log(faqBody);
-    var faqBox = document.getElementById("faq-box");
-    faqBox.insertAdjacentHTML("beforeend", faqBody);
+    // console.log(faqBody);
+    var faqList = document.createElement("div");
+    faqList.innerHTML = `
+    <section class="faq">
+      <div class="questions-box">
+      <button onclick="visibleAnswer(${i})">
+        <h2 id="question-${i + 1}">${questionAnswerArrayOfObj[i].question}</h2>
+    <span
+          id="mybutton-${i + 1}"
+          class="material-symbols-outlined"
+        >
+          <i class="fa-solid fa-plus fa-lg"></i>
+        </span>
+        </button>
+      </div>
+      <div class="answer-box">
+        <div class="faq-answer" id="answer-${i + 1}">
+        <p>${questionAnswerArrayOfObj[i].answer}</p></div>
+      </div>
+    </section>`;
+    //console.log(faqList)
+    document.getElementById("faq-box").appendChild(faqList);
   }
 }
 
 function visibleAnswer(i) {
   // var displayAnswer = document.getElementById(`answer-${i + 1}`);
   // var mybutton = document.getElementById(`mybutton-${i + 1}`);
-  if (document.getElementById(`answer-${i + 1}`).style.display === "none") {
-    document.getElementById(`answer-${i + 1}`).style.display = "inline";
-    document.getElementById(`mybutton-${i + 1}`).innerHTML = `<i class="fa-solid fa-xmark fa-lg"></i>`;
-  } 
-  else {
+  if (document.getElementById(`answer-${i + 1}`).style.display === "inline") {
     document.getElementById(`answer-${i + 1}`).style.display = "none";
-    document.getElementById(`mybutton-${i + 1}`).innerHTML = `<i class="fa-solid fa-plus fa-lg"></i>`;
+    document.getElementById(
+      `mybutton-${i + 1}`
+    ).innerHTML = `<i class="fa-solid fa-plus fa-lg"></i>`;
+    console.log("radha");
+  } else {
+    document.getElementById(`answer-${i + 1}`).style.display = "inline";
+    document.getElementById(
+      `mybutton-${i + 1}`
+    ).innerHTML = `<i class="fa-solid fa-xmark fa-lg"></i>`;
+    console.log("keerthi");
   }
 }
-
-
 // var faqBox = document.createElement("div")
 // faqBox.appendChild(faqBody)
 
