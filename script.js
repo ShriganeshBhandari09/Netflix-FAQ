@@ -66,13 +66,11 @@ function visibleAnswer(i) {
     document.getElementById(
       `mybutton-${i + 1}`
     ).innerHTML = `<i class="fa-solid fa-plus fa-lg"></i>`;
-    console.log("radha");
   } else {
     document.getElementById(`answer-${i + 1}`).style.display = "inline";
     document.getElementById(
       `mybutton-${i + 1}`
     ).innerHTML = `<i class="fa-solid fa-xmark fa-lg"></i>`;
-    console.log("keerthi");
   }
 }
 // var faqBox = document.createElement("div")

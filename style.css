@@ -38,9 +38,13 @@ button:hover {
   color: white;
 }
 
-.faq-answer {
-  overflow: hidden;
-  height: 0px;
+.faq-answer{
+  display: none;
+}
+
+
+.faq-answer.active{
+  display: inline;
 }
 
 button {
@@ -50,6 +54,7 @@ button {
   display: flex;
   justify-content: space-between;
   width: 60vw;
+  cursor: pointer;
 }
 
 h1 {
