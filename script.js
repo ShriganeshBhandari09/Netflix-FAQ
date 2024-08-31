@@ -42,14 +42,14 @@ function loadQuestionAndAnswers() {
         <h2 id="question-${i + 1}">${questionAnswerArrayOfObj[i].question}</h2>
     <span
           id="mybutton-${i + 1}"
-          class="material-symbols-outlined"
+          class="material-symbols-outlined button"
         >
           <i class="fa-solid fa-plus fa-lg"></i>
         </span>
         </button>
       </div>
       <div class="answer-box">
-        <div class="faq-answer" id="answer-${i + 1}">
+        <div class="faq-answer active" id="answer-${i + 1}">
         <p>${questionAnswerArrayOfObj[i].answer}</p></div>
       </div>
     </section>`;
@@ -59,29 +59,24 @@ function loadQuestionAndAnswers() {
 }
 
 function visibleAnswer(i) {
-  // var displayAnswer = document.getElementById(`answer-${i + 1}`);
-  // var mybutton = document.getElementById(`mybutton-${i + 1}`);
-  if (document.getElementById(`answer-${i + 1}`).style.display === "inline") {
-    document.getElementById(`answer-${i + 1}`).style.display = "none";
-    document.getElementById(
-      `mybutton-${i + 1}`
-    ).innerHTML = `<i class="fa-solid fa-plus fa-lg"></i>`;
+  var allAnswers = document.getElementsByClassName("faq-answer");
+  var allButtons = document.getElementsByClassName("button");
+
+  for (let j = 0; j < allAnswers.length; j++) {
+    if (j !== i) {
+      allAnswers[j].style.display = "none";
+      allButtons[j].style.transform = "none"
+    }
+  }
+
+  var clickedAnswer = document.getElementById(`answer-${i + 1}`);
+  var clickedButton = document.getElementById(`mybutton-${i + 1}`);
+
+  if (clickedAnswer.style.display === "inline") {
+    clickedAnswer.style.display = "none";
+    clickedButton.style.transform = "rotate(90deg)";
   } else {
-    document.getElementById(`answer-${i + 1}`).style.display = "inline";
-    document.getElementById(
-      `mybutton-${i + 1}`
-    ).innerHTML = `<i class="fa-solid fa-xmark fa-lg"></i>`;
+    clickedAnswer.style.display = "inline";
+    clickedButton.style.transform = "rotate(45deg)";
   }
 }
-// var faqBox = document.createElement("div")
-// faqBox.appendChild(faqBody)
-
-// // document.body.appendChild(faqBody)
-
-// // console.log(question);
-// // console.log(answer);
-
-// // console.log(faqBody)
-
-// var displayAnswer = document.getElementById("answer");
-// var mybutton = document.getElementById("mybutton");

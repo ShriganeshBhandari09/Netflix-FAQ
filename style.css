@@ -38,13 +38,8 @@ button:hover {
   color: white;
 }
 
-.faq-answer{
+.faq-answer {
   display: none;
-}
-
-
-.faq-answer.active{
-  display: inline;
 }
 
 button {
