@@ -36,7 +36,7 @@ function loadQuestionAndAnswers() {
     // console.log(faqBody);
     var faqList = document.createElement("div");
     faqList.innerHTML = `
-    <section class="faq">
+    <article class="faq">
       <div class="questions-box">
       <button onclick="visibleAnswer(${i})">
         <h2 id="question-${i + 1}">${questionAnswerArrayOfObj[i].question}</h2>
@@ -52,7 +52,7 @@ function loadQuestionAndAnswers() {
         <div class="faq-answer active" id="answer-${i + 1}">
         <p>${questionAnswerArrayOfObj[i].answer}</p></div>
       </div>
-    </section>`;
+    </article>`;
     //console.log(faqList)
     document.getElementById("faq-box").appendChild(faqList);
   }
@@ -65,7 +65,7 @@ function visibleAnswer(i) {
   for (let j = 0; j < allAnswers.length; j++) {
     if (j !== i) {
       allAnswers[j].style.display = "none";
-      allButtons[j].style.transform = "none"
+      allButtons[j].style.transform = "none";
     }
   }
 
